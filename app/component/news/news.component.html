@@ -1,0 +1,18 @@
+<app-headerv class="header" *ngIf="islogged===''"></app-headerv>
+<app-headst class="header" *ngIf="islogged==='st'"></app-headst>
+<div id="notfound" *ngIf="islogged===''">
+    <div class="notfound">
+        <div class="notfound-404">
+            <h1>Oops!</h1>
+        </div>
+        <h2>you are not signed in please log in first</h2>
+        <a routerLink="/login">Login</a>
+    </div>
+</div>
+<div id="notfound" *ngIf="islogged==='st'">
+    <div class="notfound">
+        <div class="notfound-404">
+            <h1>Hey</h1>
+        </div>
+    </div>
+</div>

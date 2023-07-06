@@ -1,0 +1,247 @@
+<div>
+    <app-headerv class="header" *ngIf="islogged===''"></app-headerv>
+    <app-headst class="header" *ngIf="islogged==='st'"></app-headst>  
+    <app-headadm class="header" *ngIf="islogged==='admin'"></app-headadm>
+
+    <div id="notfound" *ngIf="islogged===''">
+        <div class="notfound">
+            <div class="notfound-404">
+                <h1>Oops!</h1>
+            </div>
+            <h2>you are not signed in please log in first</h2>
+            <a routerLink="/login">Login</a>
+        </div>
+    </div>
+</div>
+<div *ngIf="islogged==='admin'">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <nav class="main-menu">
+                    <ul>
+                        <li>
+                            <a (click)="goto('all')">
+                                <i class="fa fa-home fa-2x"></i>
+                                <span class="nav-text">
+                                   All
+                                </span>
+                            </a>
+                          
+                        </li>
+                        <li class="has-subnav">
+                            <a (click)="goto('admins')">
+                                <i class="fa fa-globe fa-2x"></i>
+                                <span class="nav-text">
+                                    Teachers news
+                                </span>
+                            </a>
+                            
+                        </li>
+                        <li class="has-subnav">
+                            <a (click)="goto('QA')">
+                               <i class="fa fa-comments fa-2x"></i>
+                                <span class="nav-text">
+                                    Q&A 
+                                </span>
+                            </a>
+                            
+                        </li>
+                        <li class="has-subnav">
+                            <a (click)="goto('vexams')">
+                               <i class="fa fa-camera-retro fa-2x"></i>
+                                <span class="nav-text">
+                                    virtual Exams
+                                </span>
+                            </a>
+                           
+                        </li>
+                        <li class="has-subnav">
+                            <a (click)="goto('chat')">
+                               <i class="fa fa-camera-retro fa-2x"></i>
+                                <span class="nav-text">
+                                    cummunity chat
+                                </span>
+                            </a>
+                           
+                        </li>
+                        
+                    </ul>
+        
+                    <ul class="logout">
+                        <li>
+                           <a  >
+                                 <i class="fa fa-power-off fa-2x"></i>
+                                <span class="nav-text">
+                                    Logout
+                                </span>
+                            </a>
+                        </li>  
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-8">
+                <div *ngIf="cat !=='chat'"class="imgclassdiv">
+                    <div class="hhhh">
+                        <p>Honors</p>
+                        <p>Honors lslslslsls</p>
+                    </div>
+                    <img src="../../../assets/Honors.jpg" class="imageclass" alt="">
+                </div>
+                <div *ngIf="cat ==='all'" >
+                    <app-posts *ngFor="let item of list"></app-posts>
+                    <app-qw ></app-qw>
+                </div>
+                <div *ngIf="cat ==='admins'" >
+                    <app-posts *ngFor="let item of list"></app-posts>
+                </div>
+                <div *ngIf="cat ==='QA'" >
+                    <app-rowcontmemkpost ></app-rowcontmemkpost>
+                    <app-qw></app-qw>
+                </div>
+                <div *ngIf="cat ==='chat'" >
+                    <app-chat></app-chat>
+                </div>
+                <div *ngIf="cat ==='vexams'" >
+                    <div id="notfound" *ngIf="!islogged; else exam">
+                        <app-notsigned></app-notsigned>
+                    </div>
+                    <ng-template #exam>
+                        <app-exams ></app-exams>
+                    </ng-template>
+
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="main-menu2">
+                    
+                    <p>to Download your main book please {{id}}</p>
+                    <a href="../../../assets/كورسات مقترحه .docx.pdf" target="_blank" rel="noopener noreferrer" download class="text-center"> click here</a>
+                    <div class="more">
+                        <p>this is more pdfs </p>
+                        <p>that your teacher set </p>
+                    <a href="../../../assets/كورسات مقترحه .docx.pdf" *ngFor="let item of list" target="_blank" rel="noopener noreferrer" download> click here</a>
+                    <a href="../../../assets/كورسات مقترحه .docx.pdf" *ngFor="let item of list" target="_blank" rel="noopener noreferrer" download> click here</a>
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div *ngIf="islogged==='st'">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <nav class="main-menu">
+                    <ul>
+                        <li>
+                            <a (click)="goto('all')">
+                                <i class="fa fa-home fa-2x"></i>
+                                <span class="nav-text">
+                                   All
+                                </span>
+                            </a>
+                          
+                        </li>
+                        <li class="has-subnav">
+                            <a (click)="goto('admins')">
+                                <i class="fa fa-globe fa-2x"></i>
+                                <span class="nav-text">
+                                    Teachers news
+                                </span>
+                            </a>
+                            
+                        </li>
+                        <li class="has-subnav">
+                            <a (click)="goto('QA')">
+                               <i class="fa fa-comments fa-2x"></i>
+                                <span class="nav-text">
+                                    Q&A 
+                                </span>
+                            </a>
+                            
+                        </li>
+                        <li class="has-subnav">
+                            <a (click)="goto('vexams')">
+                               <i class="fa fa-camera-retro fa-2x"></i>
+                                <span class="nav-text">
+                                    virtual Exams
+                                </span>
+                            </a>
+                           
+                        </li>
+                        <li class="has-subnav">
+                            <a (click)="goto('chat')">
+                               <i class="fa fa-camera-retro fa-2x"></i>
+                                <span class="nav-text">
+                                    cummunity chat
+                                </span>
+                            </a>
+                           
+                        </li>
+                        
+                    </ul>
+        
+                    <ul class="logout">
+                        <li>
+                           <a  >
+                                 <i class="fa fa-power-off fa-2x"></i>
+                                <span class="nav-text">
+                                    Logout
+                                </span>
+                            </a>
+                        </li>  
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-8">
+                <div *ngIf="cat !=='chat'"class="imgclassdiv">
+                    <div class="hhhh">
+                        <p>Honors</p>
+                        <p>Honors lslslslsls</p>
+                    </div>
+                    <img src="../../../assets/Honors.jpg" class="imageclass" alt="">
+                </div>
+                <div *ngIf="cat ==='all'" >
+                    <app-posts *ngFor="let item of list"></app-posts>
+                    <app-qw ></app-qw>
+                </div>
+                <div *ngIf="cat ==='admins'" >
+                    <app-posts *ngFor="let item of list"></app-posts>
+                </div>
+                <div *ngIf="cat ==='QA'" >
+                    <app-rowcontmemkpost ></app-rowcontmemkpost>
+                    <app-qw></app-qw>
+                </div>
+                <div *ngIf="cat ==='chat'" >
+                    <app-chat></app-chat>
+                </div>
+                <div *ngIf="cat ==='vexams'" >
+                    <div id="notfound" *ngIf="!islogged; else exam">
+                        <app-notsigned></app-notsigned>
+                    </div>
+                    <ng-template #exam>
+                        <app-exams ></app-exams>
+                    </ng-template>
+
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="main-menu2">
+                    
+                    <p>to Download your main book please {{id}}</p>
+                    <a href="../../../assets/كورسات مقترحه .docx.pdf" target="_blank" rel="noopener noreferrer" download class="text-center"> click here</a>
+                    <div class="more">
+                        <p>this is more pdfs </p>
+                        <p>that your teacher set </p>
+                    <a href="../../../assets/كورسات مقترحه .docx.pdf" *ngFor="let item of list" target="_blank" rel="noopener noreferrer" download> click here</a>
+                    <a href="../../../assets/كورسات مقترحه .docx.pdf" *ngFor="let item of list" target="_blank" rel="noopener noreferrer" download> click here</a>
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

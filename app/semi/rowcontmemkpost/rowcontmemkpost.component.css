@@ -1,0 +1,14 @@
+.container-fluid{
+    background-color: rgb(223, 217, 208);
+    border-radius: 10px;
+    margin: 1%;
+}
+.container{
+    width: fit-content !important;
+    border-radius: 20px;
+    margin: 0;
+    background-color: white;
+    margin: 1%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}

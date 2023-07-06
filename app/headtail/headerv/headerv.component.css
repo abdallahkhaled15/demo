@@ -1,0 +1,37 @@
+.bg-color{
+    background-color: #34328A;
+    opacity: 40%;
+}
+.navbar{
+    z-index: 999;
+}
+.nav-link{
+    font-weight: bold;
+    opacity: 100% !important;
+}
+.btn-color{
+    background-color: #302DAD;
+    border-radius: 10px;
+    color: white;
+}
+.head-bg-img{
+    position: fixed;
+    top: 0;
+    opacity: 30%;
+    z-index: 1;
+    height: 20%;
+    user-select: none;
+    width: 100%;
+}
+.logohead{
+    width: 25%;
+    height: 5% !important;
+}
+.char{
+    color: #ffffff;
+    font-family: cursive;
+    font-size: 26px;
+}
+.ml-2{
+    margin-left: 2% !important;
+}

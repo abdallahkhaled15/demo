@@ -1,0 +1,166 @@
+<div>
+  <app-headerv class="header" *ngIf="islogged===''"></app-headerv>
+  <app-headst class="header" *ngIf="islogged==='st'"></app-headst>
+  <app-headadm class="header" *ngIf="islogged==='admin'"></app-headadm>
+  <div id="notfound" *ngIf="islogged===''">
+    <div class="notfound">
+      <div class="notfound-404">
+        <h1>Oops!</h1>
+      </div>
+      <h2>you are not signed in please log in first</h2>
+      <a routerLink="/login">Login</a>
+    </div>
+  </div>
+</div>
+
+<section *ngIf="islogged==='st'" class="classeslist">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 m-t-10 col-lg-3 col-sm-6" *ngFor="let item of list">
+        <div class="card profile-card-3">
+          <div (click)="subm(item)">
+            <div class="background-block">
+              <img loading="lazy"
+                src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                alt="profile-sample1" class="background" />
+            </div>
+            <div class="profile-thumb-block">
+              <img loading="lazy" src="https://randomuser.me/api/portraits/men/41.jpg" alt="profile-image"
+                class="profile" />
+            </div>
+
+          </div>
+          <div class="card-content">
+
+            <h2 (click)="subm(item)">Justin Mccoy<small>Designer</small></h2>
+
+            <div class="icon-block"><a><i class="fa fa-facebook"></i></a><a> <i class="fa fa-twitter"></i></a><a> <i
+                  class="fa fa-google-plus"></i></a></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section *ngIf="islogged==='admin'" class="classeslist">
+  <div class="container">
+    <div class="row">
+      <div class="col-2"><nav class="main-menu">
+        <ul>
+            <li>
+                <a (click)="goto('myclasses')">
+                    <i class="fa fa-home fa-2x"></i>
+                    <span class="nav-text">
+                       Your Classrooms
+                    </span>
+                </a>
+              
+            </li>
+            <li class="has-subnav">
+                <a (click)="goto('addpost')">
+                    <i class="fa fa-plus fa-2x"></i>
+                    <span class="nav-text">
+                        Create a Post
+                    </span>
+                </a>
+                
+            </li>
+            <li class="has-subnav">
+                <a (click)="goto('tgroups')">
+                   <i class="fa fa-comments fa-2x"></i>
+                    <span class="nav-text">
+                        teachers groups
+                    </span>
+                </a>
+                
+            </li>
+            <li class="has-subnav">
+                <a (click)="goto('addexams')">
+                   <i class="fa fa-camera-retro fa-2x"></i>
+                    <span class="nav-text">
+                        add Exams
+                    </span>
+                </a>
+               
+            </li>
+        </ul>
+
+        <ul class="logout">
+            <li>
+               <a >
+                  <i class="fa fa-power-off fa-2x"></i>
+                  <span class="nav-text">
+                    Logout
+                  </span>
+                </a>
+            </li>  
+        </ul>
+    </nav></div>
+    <div class="col-10">
+      <div class="contadiner">
+          <div *ngIf="cat ==='myclasses';else addpo "class="row w-100">
+            <div class="col-md-4 m-t-10 col-lg-3 col-sm-6" *ngFor="let item of list">
+              <div class="card profile-card-3">
+                <div (click)="subm(item)">
+                  <div class="background-block">
+                    <img loading="lazy"
+                      src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                      alt="profile-sample1" class="background" />
+                  </div>
+                  <div class="profile-thumb-block">
+                    <img loading="lazy" src="https://randomuser.me/api/portraits/men/41.jpg" alt="profile-image"
+                      class="profile" />
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h2 (click)="subm(item)">Justin Mccoy<small>Designer</small></h2>
+                  <div class="icon-block"><a><i class="fa fa-facebook"></i></a><a> <i class="fa fa-twitter"></i></a><a> <i
+                        class="fa fa-google-plus"></i></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #addpo>
+            <div *ngIf="cat ==='addpost' ;else tg"class="row w-100">
+              <app-addpost></app-addpost>
+            </div>
+            <ng-template #tg>
+              <div *ngIf="cat ==='tgroups';else ae"class="row w-100">
+                <div class="col-md-4 m-t-10 col-lg-3 col-sm-6" *ngFor="let item of list">
+                  <div class="card profile-card-3">
+                    <div (click)="subm(item)">
+                      <div class="background-block">
+                        <img loading="lazy"
+                          src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                          alt="profile-sample1" class="background" />
+                      </div>
+                      <div class="profile-thumb-block">
+                        <img loading="lazy" src="https://randomuser.me/api/portraits/men/41.jpg" alt="profile-image"
+                          class="profile" />
+                      </div>
+                    </div>
+                    <div class="card-content">
+                      <h2 (click)="subm(item)">Justin Mccoy<small>Designer</small></h2>
+                      <div class="icon-block"><a><i class="fa fa-facebook"></i></a><a> <i class="fa fa-twitter"></i></a><a> <i
+                            class="fa fa-google-plus"></i></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <ng-template #ae>
+              <div *ngIf="cat ==='addexams'; else n"class="row w-100">
+                <app-addexam></app-addexam>
+            </div>
+          </ng-template >
+          <ng-template #n>
+            <app-notfound></app-notfound>
+        </ng-template >
+            </ng-template>
+          </ng-template>
+      </div>
+
+    </div>
+    </div>
+  </div>
+</section>
